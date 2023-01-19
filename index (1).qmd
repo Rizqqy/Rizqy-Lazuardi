@@ -1,0 +1,131 @@
+---
+title: "Melihat hubungan ekspor dan nilai tukar"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "I Made Krisna"
+date: 2022-08-10
+number-sections: true
+format:
+  html: default
+  docx: default
+editor: visual
+---
+
+This **just** a ~~showcase~~ of what *Quarto* docs can produce. I use this part for my students.
+
+## Pendahuluan
+
+### Latar belakang
+
+Latar belakang berisi tentang pentingnya topik yang diangkat dalam laporan. Uraikan alasan mengapa penulis tertarik menentukan topik yang dijadikan pembahasan, dapat menggunakan metode identifikasi masalah (fishbone diagram, root cause problem solving, dll). Kemukakan hal--hal yang mendorong atau argumentasi pentingnya penyelesaian permasalahan tersebut, termasuk jika ada hasil penelitian terkait yang telah dilakukan terdahulu.
+
+### Ruang lingkup
+
+Bagian ini menguraikan batasan ruang lingkup bahasan permasalahan pada laporan, dapat berupa batasan waktu maupun topik yang dibahas. Biasanya pertanyaan dan batasan penelitian ada di sini.
+
+### Rumusan masalah
+
+Bagian ini menuliskan poin-poin permasalahan apa saja yang akan dibahas dalam laporan. Dapat juga merumuskan hipotesis penelitian.
+
+### Tujuan dan manfaat penelitian
+
+Bagian ini merupakan jawaban yang akan dicapai dari pembahasan laporan, biasanya dirumuskan dari poin-poin masalah yang telah dijabarkan sebelumnya. Identifikasi siapa saja stakeholders yang dapat memanfaatkan penelitian ini.
+
+### Package
+
+Ini tidak wajib ada di packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+#| warning: false
+#| echo: true
+library(tidyverse)
+library(readxl)
+library(WDI) # tambahkan library lain jika diperlukan
+```
+
+## Studi pustaka
+
+Salah satu bagian yang penting dalam penelitian adalah melakukan studi literatur, yaitu membaca dari berbagai sumber sesuai dengan topik yang diteliti untuk menghasilkan ide/analisis baru yang dipresentasikan dalam sebuah karya ilmiah.
+
+Bab ini menguraikan dasar-dasar teori dan istilah yang berhubungan dengan permasalahan yang ditemui atau yang mendasari pemilihan topik laporan. Studi Pustaka dilengkapi dengan sumber referensi yang dipakai dan bukan berdasarkan asumsi penulis.
+
+## Metode penelitian
+
+### Data
+
+| negara   | ekspor    |
+|----------|-----------|
+| cina     | 20.000USD |
+| thailand | 21.000USD |
+| vietnam  | 10.000USD |
+
+: lalala ekspor asal-asalan
+
+| Col1 | Col2 | Col3 |
+|------|------|------|
+|      |      |      |
+|      |      |      |
+|      |      |      |
+
+: wleowleo wleo
+
+![logo APP muncul secara random lalalala](poltekapp.jpg)
+
+penelitian ini menggunakan data xxx
+
+
+```{r}
+#| label: fig-mpg
+#| fig-cap: "City and highway mileage for 38 popular models of cars.Color by number of cylinders"
+ggplot(mpg, aes(x = hwy, y = cty, color = cyl)) +
+  geom_point(alpha = 0.5, size = 2) +
+  scale_color_viridis_c() +
+  theme_minimal()
+```
+
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini merbaksud mencari hubungan antara hwy dan cty. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah hwy dan $x_t$ adalah cty.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Pada bagian ini dapat ditampilkan data dan visualisasi data yang telah dikumpulkan.
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+reg<-lm(hwy~cty,data=mpg)
+summary(reg)
+```
+
+Dapat dilihat dari tabel di atas bahwa ini bukan regresi AR(1). wkkwkwkwk.
+
+```{r}
+library(readxl)
+dat<-read_excel("latihan.xlsx")
+reg<-lm(Y~X,data=dat)s
+summary(reg)
+```
+
+
+
+## Kesimpulan
+
+Bagian ini berisi jawaban dari permasalahan dan tujuan yang diajukan pada laporan, yang diperoleh dari hasil pembahasan dan usulan perbaikan. Saran merupakan tindak lanjut dari kesimpulan, berupa anjuran atau rekomendasi yang disampaikan secara ringkas dan dapat diimplementasikan
+
+## Referensi
+
+Gupta, K., Choirinnida, I. T., & Taufik, M. (2022). Global value chain impact for Indonesia economy and the way to make it more resilient. In Indonesia Post-Pandemic Outlook: Rethinking Health and Economics Post-COVID-19. BRIN Publishing.
+
+Media, K. C. (2022, December 24). Ekspor Bauksit Distop, Pembangunan 12 Smelter Ditarget Rampung Juni 2023. KOMPAS.com. https://money.kompas.com/read/2022/12/24/110000926/ekspor-bauksit-distop-pembangunan-12-smelter-ditarget-rampung-juni-2023
+
+Sjahrir, B. S., Kis-Katos, K., & Schulze, G. G. (2014). Administrative Overspending in Indonesian Districts: The Role of Local Politics. World Development, 59, 166--183. https://doi.org/10.1016/j.worlddev.2014.01.008
+
+Referensi ini dibuat dengan Zotero. Di penelitian aslinya, anda harus masukan referensi yang anda gunakan ketika mulai menulis.
